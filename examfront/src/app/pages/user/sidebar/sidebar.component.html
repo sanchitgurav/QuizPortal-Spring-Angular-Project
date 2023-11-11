@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-action-list>
+    <!-- <button mat-list-item class="ml10" routerLink="/user-dashboard/user-profile">
+      <mat-icon mat-list-icon>account_circle</mat-icon> Profile
+    </button> -->
+    <div mat-subheader>Categories</div>
+    <button mat-list-item routerLink="/user-dashboard/0">
+      <mat-icon mat-list-icon>topic</mat-icon> All Quizzes
+    </button>
+    <button
+      [routerLink]="'/user-dashboard/' + c.cid"
+      mat-list-item
+      *ngFor="let c of categories"
+    >
+      <mat-icon mat-list-icon>topic</mat-icon> {{ c.title }}
+    </button>
+  </mat-action-list>
+</mat-card>
+
+<!-- {{ categories | json }} -->

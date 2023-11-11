@@ -1,0 +1,52 @@
+<!-- <h1>This is navbar</h1> -->
+<mat-toolbar color="primary">
+  <a
+    routerLink="/"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu_book</mat-icon>
+  </a>
+  <span>QuizMaster</span>
+  <span class="example-spacer"></span>
+  <a
+    *ngIf="!isLoggedIn"
+    [routerLink]="'/login'"
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    <h3>Login</h3>
+  </a>
+
+  <a
+    *ngIf="!isLoggedIn"
+    [routerLink]="'/signup'"
+    mat-icon-button
+    class="example-icon favorite-icon mr40 ml20"
+    aria-label="Example icon-button with heart icon"
+  >
+    <h3>Register</h3>
+  </a>
+
+  <button
+    *ngIf="isLoggedIn && user"
+    class="example-icon favorite-icon ml20"
+    mat-button
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>account_box</mat-icon>
+    {{ user.username }}
+  </button>
+
+  <a
+    (click)="logout()"
+    *ngIf="isLoggedIn"
+    mat-icon-button
+    class="example-icon favorite-icon ml20"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>logout</mat-icon>
+  </a>
+</mat-toolbar>
